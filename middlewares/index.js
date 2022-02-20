@@ -1,6 +1,3 @@
-// import expressJwt from "express-jwt";
-// import Hotel from "../models/hotel";
-
 const expressJwt = require("express-jwt");
 const Hotel = require("../models/hotel")
 

@@ -1,5 +1,3 @@
-// import Hotel from "../models/hotel";
-// import fs from "fs";
 const fs = require("fs");
 const Hotel = require("../models/hotel");
 

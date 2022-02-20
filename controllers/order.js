@@ -1,5 +1,3 @@
-// import User from "../models/user";
-// import Order from "../models/order";
 const User = require('../models/user');
 const Order = require('../models/order');
 
