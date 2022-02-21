@@ -10,7 +10,7 @@ const app = express();
 const db = "mongodb+srv://dimassspb:pathfinder999@cluster0.bt65b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // db connection
 mongoose
-    .connect(process.env.db, {
+    .connect(db, {
         useNewUrlParser: true,
         useFindAndModify: false,
         useUnifiedTopology: true,
