@@ -39,7 +39,7 @@ const EditHotel = ({ match }) => {
             // console.log(res);
             setValues({ ...values, ...res.data });
             setPreview(
-                `${process.env.REACT_APP_API}/hotel/image/${res.data._id}`,
+                `/api/hotel/image/${res.data._id}`,
             );
             setLoading(false);
         } catch (error) {

@@ -27,6 +27,7 @@ const SmallCard = ({
                                 src='https://via.placeholder.com/900x500.png?text=Booking'
                                 alt='default hotel image'
                                 className='card-image img img-fluid'
+                                style={{ maxWidth: "500px" }}
                             />
                         )}
                     </div>

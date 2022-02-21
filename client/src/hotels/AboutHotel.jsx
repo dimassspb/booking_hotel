@@ -33,9 +33,6 @@ const AboutHotel = ({ match, history }) => {
         setLoading(true);
         let res = await show(match.params.hotelId);
         setLoading(false);
-        console.log("====================================");
-        console.log(res.data);
-        console.log("====================================");
         setHotel(res.data);
         setImage(`/api/hotel/image/${res.data._id}`);
     };
