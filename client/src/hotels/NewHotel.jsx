@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { createHotel } from "./../actions/hotel";
 import HotelCreateForm from "../components/forms/HotelCreateForm";
@@ -23,9 +23,7 @@ const NewHotel = () => {
         bed: "",
     });
 
-    const [preview, setPreview] = useState(
-        "https:via.placeholder.com/100x100.png?text=PREVIEW",
-    );
+    const [preview, setPreview] = useState("");
     const [loading, setLoading] = useState();
 
     // destructuring
@@ -70,6 +68,10 @@ const NewHotel = () => {
     const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
+
+    useEffect(() => {
+        setPreview('https:via.placeholder.com/100x100.png?text=PREVIEW')
+    }, [])
 
     return (
         <>
