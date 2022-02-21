@@ -37,7 +37,7 @@ const AboutHotel = ({ match, history }) => {
         console.log(res.data);
         console.log("====================================");
         setHotel(res.data);
-        setImage(`${process.env.REACT_APP_API}/hotel/image/${res.data._id}`);
+        setImage(`/api/hotel/image/${res.data._id}`);
     };
 
     const handleClick = async (e) => {

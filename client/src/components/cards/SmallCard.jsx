@@ -24,7 +24,7 @@ const SmallCard = ({
                             />
                         ) : (
                             <img
-                                src='../../default/default_image.png'
+                                src='https://via.placeholder.com/900x500.png?text=Booking'
                                 alt='default hotel image'
                                 className='card-image img img-fluid'
                             />
@@ -33,7 +33,7 @@ const SmallCard = ({
                     <div className='col-md-8'>
                         <div className='card-body'>
                             <h3 className='card-title'>
-                                {hotel.title}
+                                {hotel.title}{" "}
                                 <span className='float-right text-primary'>
                                     {currencyFormatter(hotel.price)}
                                 </span>
