@@ -17,10 +17,10 @@ const SmallCard = ({
                     <div className='col-md-4'>
                         {hotel.image && hotel.image.contentType ? (
                             <img
-                                src={`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`}
+                                src={`/api/hotel/image/${hotel._id}`}
                                 alt='default hotel image'
                                 className='card-image img img-fluid'
-                                style={{maxWidth: '500px'}}
+                                style={{ maxWidth: "500px" }}
                             />
                         ) : (
                             <img
