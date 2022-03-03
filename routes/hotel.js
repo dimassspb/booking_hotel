@@ -16,7 +16,7 @@ const {
 // middleware
 const { requireSignin, hotelOwner } = require("../middlewares");
 
-const router = express.Router({ mergeParams: true });
+const router = express.Router();
 
 router.post("/create-hotel", requireSignin, formidable(), create);
 router.get("/allhotels", hotels);

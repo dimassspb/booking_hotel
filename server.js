@@ -5,16 +5,14 @@ const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+const port = process.env.PORT || 5000;
 const app = express();
 const db = "mongodb+srv://dimassspb:pathfinder999@cluster0.bt65b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // db connection
 mongoose
     .connect(db, {
         useNewUrlParser: true,
-        useFindAndModify: false,
         useUnifiedTopology: true,
-        useCreateIndex: true,
     })
     .then(() => console.log("DB Connected"))
     .catch((err) => console.log("DB Connection Error: ", err));
@@ -23,26 +21,18 @@ mongoose
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json()); //
-// app.use("/api", routes);
 
 // route middleware
-readdirSync("./routes").forEach((r) =>
+readdirSync("./routes").map((r) =>
     app.use("/api", require(`./routes/${r}`)),
 );
 
-
-
-const PORT = process.env.PORT || 5000;
-
 if (process.env.NODE_ENV === "production") {
-    console.log("Production");
-        app.use("/", express.static("client/build"));
+    app.use("/", express.static("client/build"));
 
-        app.get("*", (req, res) => {
-            res.sendFile(path.resolve(__dirname, "client/build/index.html"));
-        });
-} else {
-    console.log("development");
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client/build/index.html"));
+    });
 }
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));

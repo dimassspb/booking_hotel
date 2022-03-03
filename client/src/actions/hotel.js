@@ -1,14 +1,22 @@
 import axios from "axios";
+let url;
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === "development") {
+url = process.env.REACT_APP_API;
+} else {
+    url = '/api'
+}
+
 
 export const createHotel = async (token, data) =>
-    await axios.post(`/api/hotels/create-hotel`, data, {
+    await axios.post(`/api/create-hotel`, data, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
 export const allHotels = async () =>
-    await axios.get(`/api/allhotels`);
+    await axios.get(`${url}/allhotels`);
 
 export const sellerHotels = async (token) =>
     await axios.get(`/api/seller-hotels`, {
