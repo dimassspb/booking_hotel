@@ -29,7 +29,7 @@ app.use(express.json()); //
 readdirSync("./routes").forEach((r) =>
     app.use("/api", require(`./routes/${r}`)),
 );
-// app.use("/api", require("./routes/hotel"));
+
 
 
 const PORT = process.env.PORT || 5000;

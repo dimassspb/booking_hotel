@@ -1,6 +1,5 @@
 import { currencyFormatter } from "../../utils/currencyFormatter";
 import { diffDays } from "../../utils/diffDays";
-import { useHistory } from "react-router-dom";
 
 const BookingCard = ({ hotel }) => {
     return (

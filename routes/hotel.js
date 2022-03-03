@@ -19,7 +19,7 @@ const { requireSignin, hotelOwner } = require("../middlewares");
 const router = express.Router({ mergeParams: true });
 
 router.post("/create-hotel", requireSignin, formidable(), create);
-router.get("/hotels", hotels);
+router.get("/allhotels", hotels);
 router.get("/hotel/image/:hotelId", image);
 router.get("/seller-hotels", requireSignin, sellerHotels);
 router.delete("/delete-hotel/:hotelId", requireSignin, hotelOwner, remove);
