@@ -29,22 +29,6 @@ readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
 const PORT = process.env.PORT || 5000;
 
-// ***************************
-// app.use("/", express.static(path.join(__dirname, "client")));
-
-// const indexPath = path.join(__dirname, "client", "index.html");
-
-// app.get("*", (req, res) => {
-//     res.sendFile(indexPath);
-// });
-// ***************************
-
-// app.use(express.static(path.join(__dirname, "client", "build")));
-// // Right before your app.listen(), add this:
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
-
 if (process.env.NODE_ENV === "production") {
     app.use("/", express.static("client/build"));
 
