@@ -1,35 +1,43 @@
 import axios from "axios";
+console.log('====================================');
+console.log(process.env);
+console.log('====================================');
+
+let url;
+process.env.NODE_ENV === "development"
+    ? (url = process.env.REACT_APP_API)
+    : (url = "api");
 
 export const createHotel = async (token, data) =>
-    await axios.post(`${process.env.REACT_APP_API}/create-hotel`, data, {
+    await axios.post(`${url}/create-hotel`, data, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
 export const allHotels = async () =>
-    await axios.get(`${process.env.REACT_APP_API}/hotels`);
+    await axios.get(`${url}/hotels`);
 
 export const sellerHotels = async (token) =>
-    await axios.get(`${process.env.REACT_APP_API}/seller-hotels`, {
+    await axios.get(`${url}/seller-hotels`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
 export const deleteHotel = async (token, hotelId) =>
-    await axios.delete(`${process.env.REACT_APP_API}/delete-hotel/${hotelId}`, {
+    await axios.delete(`${url}/delete-hotel/${hotelId}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
 export const show = async (hotelId) =>
-    await axios.get(`${process.env.REACT_APP_API}/hotel/${hotelId}`);
+    await axios.get(`${url}/hotel/${hotelId}`);
 
 export const refreshHotel = async (token, data, hotelId) =>
     await axios.put(
-        `${process.env.REACT_APP_API}/refresh-hotel/${hotelId}`,
+        `${url}/refresh-hotel/${hotelId}`,
         data,
         {
             headers: {
@@ -40,7 +48,7 @@ export const refreshHotel = async (token, data, hotelId) =>
 
 export const isAlreadyBooked = async (token, hotelId) =>
     await axios.get(
-        `${process.env.REACT_APP_API}/is-already-booked/${hotelId}`,
+        `${url}/is-already-booked/${hotelId}`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -49,4 +57,4 @@ export const isAlreadyBooked = async (token, hotelId) =>
     );
 
 export const searchRes = async (query) =>
-    await axios.post(`${process.env.REACT_APP_API}/search-res`, query);
+    await axios.post(`${url}/search-res`, query);
