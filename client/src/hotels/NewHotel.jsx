@@ -69,7 +69,12 @@ const NewHotel = () => {
     };
 
     useEffect(() => {
-        setPreview("https:via.placeholder.com/100x100.png?text=PREVIEW");
+        async function getPreview() {
+            await setPreview(
+                "https:via.placeholder.com/100x100.png?text=PREVIEW",
+            );
+        }
+        getPreview();
     }, []);
 
     return (
