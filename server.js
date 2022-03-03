@@ -23,11 +23,16 @@ mongoose
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json()); //
+// app.use("/api", routes);
 
 // route middleware
-readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
+readdirSync("./routes").forEach((r) =>
+    app.use("/api", require(`./routes/${r}`)),
+);
+// app.use("/api", require("./routes/hotel"));
 
-const PORT = process.env.PORT ?? 5000;
+
+const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "production") {
     console.log("Production");
