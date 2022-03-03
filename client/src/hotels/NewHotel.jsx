@@ -9,7 +9,6 @@ const NewHotel = () => {
     // redux
     const { auth } = useSelector((state) => ({ ...state }));
     const { token } = auth;
-    console.log("auth", auth);
 
     // state
     const [values, setValues] = useState({
@@ -70,8 +69,8 @@ const NewHotel = () => {
     };
 
     useEffect(() => {
-        setPreview('https:via.placeholder.com/100x100.png?text=PREVIEW')
-    }, [])
+        setPreview("https:via.placeholder.com/100x100.png?text=PREVIEW");
+    }, []);
 
     return (
         <>
@@ -94,7 +93,7 @@ const NewHotel = () => {
                         <div className='col-md-2'>
                             <img
                                 src={preview}
-                                alt='preview_image'
+                                alt='preview'
                                 className='img img-fluid m-2'
                             />
                         </div>
