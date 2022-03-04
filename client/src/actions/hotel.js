@@ -1,11 +1,5 @@
 import axios from "axios";
-let url;
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === "development") {
-url = process.env.REACT_APP_API;
-} else {
-    url = '/api'
-}
+
 
 
 export const createHotel = async (token, data) =>
@@ -16,7 +10,7 @@ export const createHotel = async (token, data) =>
     });
 
 export const allHotels = async () =>
-    await axios.get(`${url}/allhotels`);
+    await axios.get(`/api/allhotels`);
 
 export const sellerHotels = async (token) =>
     await axios.get(`/api/seller-hotels`, {
