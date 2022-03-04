@@ -10,7 +10,7 @@ const BookingCard = ({ hotel }) => {
                         <div className='card-body'>
                             <h3 className='card-title'>
                                 {hotel.title}
-                                <span className='float-right text-primary m-2'>
+                                <span className='float-right text-primary'>
                                     {currencyFormatter(hotel.price)}
                                 </span>
                             </h3>
