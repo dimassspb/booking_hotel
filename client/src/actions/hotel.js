@@ -1,12 +1,10 @@
 import axios from "axios";
-let url;
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === "development") {
-url = process.env.REACT_APP_API;
-} else {
-    url = '/api'
-}
+import { getUrl } from "../utils/getUrl";
 
+const url = getUrl()
+console.log('====================================');
+console.log(url);
+console.log('====================================');
 
 export const createHotel = async (token, data) =>
     await axios.post(`${url}/create-hotel`, data, {
@@ -15,8 +13,7 @@ export const createHotel = async (token, data) =>
         },
     });
 
-export const allHotels = async () =>
-    await axios.get(`/api/allhotels`);
+export const allHotels = async () => await axios.get(`${url}/allhotels`);
 
 export const sellerHotels = async (token) =>
     await axios.get(`/api/seller-hotels`, {
