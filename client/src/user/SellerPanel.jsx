@@ -21,7 +21,6 @@ const SellerPanel = () => {
         try {
             setLoading(true);
             let res = await sellerHotels(auth.token);
-            console.log("res.data", res.data);
             setHotels(res.data);
             setLoading(false);
         } catch (error) {

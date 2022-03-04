@@ -1,5 +1,4 @@
 import { DatePicker, Select } from "antd";
-// import "antd/dist/antd.css";
 import moment from "moment";
 
 const { Option } = Select;

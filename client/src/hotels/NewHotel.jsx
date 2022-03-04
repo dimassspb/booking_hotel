@@ -22,7 +22,9 @@ const NewHotel = () => {
         bed: "",
     });
 
-    const [preview, setPreview] = useState("");
+    const [preview, setPreview] = useState(
+        "https:via.placeholder.com/100x100.png?text=PREVIEW",
+    );
     const [loading, setLoading] = useState();
 
     // destructuring
@@ -67,10 +69,6 @@ const NewHotel = () => {
     const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
-
-    useEffect(() => {
-        setPreview("https:via.placeholder.com/100x100.png?text=PREVIEW");
-    }, []);
 
     return (
         <>
