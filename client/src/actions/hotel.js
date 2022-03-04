@@ -1,11 +1,5 @@
 import axios from "axios";
-// let url;
-// console.log(process.env.NODE_ENV);
-// if (process.env.NODE_ENV === "development") {
-// url = process.env.REACT_APP_API;
-// } else {
-//     url = '/api'
-// }
+
 
 
 export const createHotel = async (token, data) =>
