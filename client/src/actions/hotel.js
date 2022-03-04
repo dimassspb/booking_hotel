@@ -13,7 +13,7 @@ export const createHotel = async (token, data) =>
 export const allHotels = async () => await axios.get(`${url}/allhotels`);
 
 export const sellerHotels = async (token) =>
-    await axios.get(`/api/seller-hotels`, {
+    await axios.get(`${url}/seller-hotels`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

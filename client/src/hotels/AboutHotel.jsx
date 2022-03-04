@@ -57,6 +57,7 @@ const AboutHotel = ({ match, history }) => {
             );
         }
     };
+
     return (
         <>
             {loading ? (
@@ -105,10 +106,10 @@ const AboutHotel = ({ match, history }) => {
                                         "MMMM Do YYYY, h:mm:ss a",
                                     )}
                                 </p>
-                                {/* <i>
+                                <i>
                                     Posted by{" "}
                                     {hotel.postedBy && hotel.postedBy.name}
-                                </i> */}
+                                </i>
                                 <br />
                                 <button
                                     onClick={handleClick}

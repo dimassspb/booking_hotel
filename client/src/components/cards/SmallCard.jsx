@@ -2,6 +2,10 @@ import { currencyFormatter } from "../../utils/currencyFormatter";
 import { diffDays } from "../../utils/diffDays.js";
 import { Link, useHistory } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { getUrl } from "../../service/getUrl";
+
+
+const url = getUrl();
 
 const SmallCard = ({
     hotel,
@@ -17,7 +21,7 @@ const SmallCard = ({
                     <div className='col-md-4'>
                         {hotel.image && hotel.image.contentType ? (
                             <img
-                                src={`/api/hotel/image/${hotel._id}`}
+                                src={`${url}/hotel/image/${hotel._id}`}
                                 alt='default hotel image'
                                 className='card-image img img-fluid'
                                 style={{ maxWidth: "500px" }}

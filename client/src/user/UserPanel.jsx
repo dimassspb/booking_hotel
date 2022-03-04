@@ -21,7 +21,6 @@ const UserPanel = () => {
         setLoading(true);
         const res = await userOrders(token);
         setLoading(false);
-        console.log(res.data);
         setBookings(res.data);
     };
 
