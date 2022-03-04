@@ -1,10 +1,7 @@
 import axios from "axios";
-import { getUrl } from "../utils/getUrl";
+import { getUrl } from "../service/getUrl";
 
 const url = getUrl()
-console.log('====================================');
-console.log(url);
-console.log('====================================');
 
 export const createHotel = async (token, data) =>
     await axios.post(`${url}/create-hotel`, data, {
@@ -23,35 +20,26 @@ export const sellerHotels = async (token) =>
     });
 
 export const deleteHotel = async (token, hotelId) =>
-    await axios.delete(`/api/delete-hotel/${hotelId}`, {
+    await axios.delete(`${url}/delete-hotel/${hotelId}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
-export const show = async (hotelId) =>
-    await axios.get(`/api/hotel/${hotelId}`);
+export const show = async (hotelId) => await axios.get(`${url}/hotel/${hotelId}`);
 
 export const refreshHotel = async (token, data, hotelId) =>
-    await axios.put(
-        `/api/refresh-hotel/${hotelId}`,
-        data,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+    await axios.put(`${url}/refresh-hotel/${hotelId}`, data, {
+        headers: {
+            Authorization: `Bearer ${token}`,
         },
-    );
+    });
 
 export const isAlreadyBooked = async (token, hotelId) =>
-    await axios.get(
-        `/api/is-already-booked/${hotelId}`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+    await axios.get(`${url}/is-already-booked/${hotelId}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
         },
-    );
+    });
 
-export const searchRes = async (query) =>
-    await axios.post(`/api/search-res`, query);
+export const searchRes = async (query) => await axios.post(`${url}/search-res`, query);

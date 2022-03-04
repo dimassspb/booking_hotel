@@ -6,6 +6,9 @@ import Loader from "../components/Loader";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { createOrder } from "../actions/order";
+import { getUrl } from "../service/getUrl";
+
+const url = getUrl();
 
 const AboutHotel = ({ match, history }) => {
     // redux
@@ -34,7 +37,7 @@ const AboutHotel = ({ match, history }) => {
         let res = await show(match.params.hotelId);
         setLoading(false);
         setHotel(res.data);
-        setImage(`/api/hotel/image/${res.data._id}`);
+        setImage(`${url}/hotel/image/${res.data._id}`);
     };
 
     const handleClick = async (e) => {

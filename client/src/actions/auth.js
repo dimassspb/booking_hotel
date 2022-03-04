@@ -1,10 +1,13 @@
 import axios from "axios";
+import { getUrl } from "../service/getUrl";
+
+const url = getUrl();
 
 export const register = async (user) =>
-    await axios.post(`/api/register`, user);
+    await axios.post(`${url}/register`, user);
 
 export const login = async (user) =>
-    await axios.post(`/api/login`, user);
+    await axios.post(`${url}/login`, user);
 
   // update user in local storage
 export const updateUserInLocalStorage = (user, next) => {

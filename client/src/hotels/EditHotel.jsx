@@ -4,6 +4,9 @@ import { show, refreshHotel } from "./../actions/hotel";
 import { useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import HotelEditForm from "../components/forms/HotelEditForm";
+import { getUrl } from "../service/getUrl";
+
+const url = getUrl();
 
 const EditHotel = ({ match }) => {
     // redux
@@ -36,10 +39,9 @@ const EditHotel = ({ match }) => {
         try {
             setLoading(true);
             let res = await show(match.params.hotelId);
-            // console.log(res);
             setValues({ ...values, ...res.data });
             setPreview(
-                `/api/hotel/image/${res.data._id}`,
+                `${url}/hotel/image/${res.data._id}`,
             );
             setLoading(false);
         } catch (error) {
@@ -76,7 +78,6 @@ const EditHotel = ({ match }) => {
     };
 
     const handleImageChange = (e) => {
-        // console.log(e.target.files[0])
         setPreview(URL.createObjectURL(e.target.files[0]));
         setImage(e.target.files[0]);
     };

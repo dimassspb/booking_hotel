@@ -1,8 +1,11 @@
 import axios from "axios";
+import { getUrl } from "../service/getUrl";
+
+const url = getUrl();
 
 export const createOrder = async (token, image, hotel) =>
     await axios.post(
-        `/api/order-create`,
+        `${url}/order-create`,
         { image, hotel },
         {
             headers: {
@@ -12,7 +15,7 @@ export const createOrder = async (token, image, hotel) =>
     );
 
     export const userOrders = async (token) =>
-        await axios.get(`/api/user-orders`, {
+        await axios.get(`${url}/user-orders`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
